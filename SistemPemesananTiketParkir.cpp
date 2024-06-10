@@ -173,3 +173,8 @@ int pilihan;
                 cout << "Masukkan nomor lokasi tempat parkir: ";
                 cin >> lokasiPilihan;
                 cetakGaris();
+
+                if (lokasiPilihan < 1 || lokasiPilihan > lokasiParkir.size()) {
+                    cout << "Pilihan lokasi tidak valid." << endl;
+                } else {
+                    string lokasi = lokasiParkir[lokasiPilihan - 1];

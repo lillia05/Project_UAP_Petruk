@@ -145,3 +145,15 @@ int main() {
             tempatParkir.emplace_back(i, lokasi);
         }
     }
+int pilihan;
+    while (true) {
+        cetakGaris();
+        cout << "=\t      SELAMAT DATANG\t        =" << endl;
+        cetakGaris();
+        cout << "=  1. Daftar\t\t\t        =" << endl;
+        cout << "=  2. Masuk\t\t\t        =" << endl;
+        cout << "=  3. Keluar\t\t\t        =" << endl;
+        cetakGaris();
+        cout << "= Masukkan Pilihan : ";
+        cin >> pilihan;
+        cetakGaris();

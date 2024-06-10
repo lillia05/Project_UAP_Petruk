@@ -196,3 +196,14 @@ int pilihan;
                         cout << "=  Masukkan ID tempat untuk memesan: ";
                         cin >> idTempat;
                         cetakGaris();
+
+                        bool found = false;
+                        for (auto& tp : tempatParkir) {
+                            if (tp.id == idTempat && tp.tersedia) {
+                                konfirmasiPemesanan(tp, lokasi);
+                                cetakStrukParkir(tp, lokasi);
+                                menuSetelahCetakStruk();
+                                found = true;
+                                break;
+                            }
+                        }

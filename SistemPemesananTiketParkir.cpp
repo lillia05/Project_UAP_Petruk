@@ -181,3 +181,12 @@ int pilihan;
 
                     // Menggunakan Divide and Conquer untuk mencari tempat parkir
                     vector<TempatParkir> tempatTersedia = cari(tempatParkir, lokasi, 0, tempatParkir.size() - 1);
+
+                    if (!tempatTersedia.empty()) {
+                        cetakGaris();
+                        cout << "=        SISTEM PEMESANAN PARKIR        =" << endl;
+                        cetakGaris();
+                        cout << "=  Tempat parkir tersedia di " << lokasi << ":\n";
+                        for (const auto& tp : tempatTersedia) {
+                            cout << "=  ID Tempat: " << tp.id << endl;
+                        }

@@ -164,3 +164,6 @@ int pilihan;
         } else if (pilihan == 2) {
             if (masukPengguna(namaBerkasPengguna)) {
                 cout << "### Masuk berhasil ###\n" << endl;
+
+                cetakGaris();
+                tampilkanLokasi(lokasiParkir);

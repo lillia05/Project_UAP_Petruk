@@ -180,7 +180,6 @@ int pilihan;
                     string lokasi = lokasiParkir[lokasiPilihan - 1];
 
                     vector<TempatParkir> tempatTersedia = cari(tempatParkir, lokasi, 0, tempatParkir.size() - 1);
-
                     if (!tempatTersedia.empty()) {
                         cetakGaris();
                         cout << "=        SISTEM PEMESANAN PARKIR        =" << endl;
@@ -224,5 +223,3 @@ int pilihan;
         }
     }
 
-    return 0;
-}

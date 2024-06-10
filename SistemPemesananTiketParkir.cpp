@@ -224,3 +224,6 @@ int pilihan;
             cout << "Pilihan tidak valid." << endl;
         }
     }
+
+    return 0;
+}

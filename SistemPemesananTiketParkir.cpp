@@ -190,3 +190,9 @@ int pilihan;
                         for (const auto& tp : tempatTersedia) {
                             cout << "=  ID Tempat: " << tp.id << endl;
                         }
+
+                        int idTempat;
+                        cetakGaris();
+                        cout << "=  Masukkan ID tempat untuk memesan: ";
+                        cin >> idTempat;
+                        cetakGaris();

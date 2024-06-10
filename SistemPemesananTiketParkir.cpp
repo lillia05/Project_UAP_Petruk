@@ -167,3 +167,9 @@ int pilihan;
 
                 cetakGaris();
                 tampilkanLokasi(lokasiParkir);
+
+                int lokasiPilihan;
+                cetakGaris();
+                cout << "Masukkan nomor lokasi tempat parkir: ";
+                cin >> lokasiPilihan;
+                cetakGaris();

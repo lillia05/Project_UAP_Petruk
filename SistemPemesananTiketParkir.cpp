@@ -7,13 +7,11 @@
 
 using namespace std;
 
-// Struktur untuk pengguna
 struct Pengguna {
     char namaPengguna[50];
     char kataSandi[50];
 };
 
-// Kelas untuk tempat parkir
 class TempatParkir {
 public:
     int id;
@@ -23,12 +21,10 @@ public:
     TempatParkir(int id, string lokasi) : id(id), lokasi(lokasi), tersedia(true) {}
 };
 
-// Fungsi untuk mencetak garis horizontal
 void cetakGaris() {
     cout << "=========================================" << endl;
 }
 
-// Fungsi untuk registrasi pengguna
 void daftarPengguna(const char* namaBerkas) {
     Pengguna pengguna;
     cout << "Masukkan nama pengguna: ";
@@ -41,7 +37,6 @@ void daftarPengguna(const char* namaBerkas) {
     keluarBerkas.close();
 }
 
-// Fungsi untuk login pengguna
 bool masukPengguna(const char* namaBerkas) {
     Pengguna pengguna;
     char namaPengguna[50];
@@ -64,7 +59,6 @@ bool masukPengguna(const char* namaBerkas) {
     return false;
 }
 
-// Fungsi untuk mencari tempat parkir berdasarkan lokasi
 vector<TempatParkir> cariTempatParkir(const vector<TempatParkir>& tempat, const string& lokasi) {
     vector<TempatParkir> hasil;
     for (const auto& tp : tempat) {
@@ -74,3 +68,80 @@ vector<TempatParkir> cariTempatParkir(const vector<TempatParkir>& tempat, const 
     }
     return hasil;
 }
+
+void konfirmasiPemesanan(TempatParkir& tempat, const string& lokasi) {
+    tempat.tersedia = false;
+    cetakGaris();
+    cout << "=        SISTEM PEMESANAN PARKIR        =" << endl;
+    cetakGaris();
+    cout << "Pemesanan dikonfirmasi ID: " << tempat.id << " di " << lokasi << endl;
+}
+
+string generateBarcode(int id) {
+    return "BARCODE_" + to_string(id); 
+}
+
+void cetakStrukParkir(const TempatParkir& tempat, const string& lokasi) {
+    ofstream keluarBerkas("struk_parkir.txt");
+    string barcode = generateBarcode(tempat.id);
+
+    keluarBerkas << "ID Tempat Parkir: " << tempat.id << endl;
+    keluarBerkas << "Lokasi: " << lokasi << endl;
+    keluarBerkas << "Status: " << (tempat.tersedia ? "Tersedia" : "Dipesan") << endl;
+    keluarBerkas << "Barcode: " << barcode << endl;
+    keluarBerkas.close();
+
+    cout << "Struk dicetak dengan barcode: " << barcode << endl;
+    cetakGaris();
+    cout << endl;
+}
+
+void menuSetelahCetakStruk() {
+    int pilihan;
+    cout << "=  1. Kembali ke menu utama\n";
+    cetakGaris();
+    cout << "Masukkan pilihan: ";
+    cin >> pilihan;
+    while (pilihan != 1) {
+        cout << "Pilihan tidak valid. Masukkan 1 untuk kembali ke menu utama: ";
+        cin >> pilihan;
+    }
+}
+
+vector<TempatParkir> cari(const vector<TempatParkir>& tempat, const string& lokasi, int awal, int akhir) {
+    if (awal > akhir) {
+        return {};
+    }
+
+    int tengah = awal + (akhir - awal) / 2;
+    vector<TempatParkir> hasilKiri = cari(tempat, lokasi, awal, tengah - 1);
+    vector<TempatParkir> hasilKanan = cari(tempat, lokasi, tengah + 1, akhir);
+
+    vector<TempatParkir> hasil = hasilKiri;
+    if (tempat[tengah].lokasi == lokasi && tempat[tengah].tersedia) {
+        hasil.push_back(tempat[tengah]);
+    }
+    hasil.insert(hasil.end(), hasilKanan.begin(), hasilKanan.end());
+
+    return hasil;
+}
+
+void tampilkanLokasi(const vector<string>& lokasiParkir) {
+    cout << "=        SISTEM PEMESANAN PARKIR        =" << endl;
+    cetakGaris();
+    cout << "=  Lokasi parkir yang tersedia:\n";
+    for (size_t i = 0; i < lokasiParkir.size(); ++i) {
+        cout << "=  " << i + 1 << ". " << lokasiParkir[i] << endl;
+    }
+}
+
+int main() {
+    const char* namaBerkasPengguna = "pengguna.dat";
+    vector<TempatParkir> tempatParkir;
+    vector<string> lokasiParkir = {"Lokasi A", "Lokasi B", "Lokasi C"};
+
+    for (const auto& lokasi : lokasiParkir) {
+        for (int i = 1; i <= 10; ++i) {
+            tempatParkir.emplace_back(i, lokasi);
+        }
+    }

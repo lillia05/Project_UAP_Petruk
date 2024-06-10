@@ -207,3 +207,20 @@ int pilihan;
                                 break;
                             }
                         }
+                        if (!found) {
+                            cout << "ID Tempat tidak valid atau sudah dipesan." << endl;
+                        }
+                    } else {
+                        cout << "Tidak ada tempat parkir tersedia di " << lokasi << endl;
+                    }
+                }
+            } else {
+                cout << "!!! Masuk gagal. Nama pengguna atau kata sandi salah. !!!\n" << endl;
+            }
+        } else if (pilihan == 3) {
+            cout << "Keluar dari program." << endl;
+            break;
+        } else {
+            cout << "Pilihan tidak valid." << endl;
+        }
+    }

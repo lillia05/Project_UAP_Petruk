@@ -157,3 +157,10 @@ int pilihan;
         cout << "= Masukkan Pilihan : ";
         cin >> pilihan;
         cetakGaris();
+
+        if (pilihan == 1) {
+            daftarPengguna(namaBerkasPengguna);
+            cout << "### Registrasi berhasil ###\n" << endl;
+        } else if (pilihan == 2) {
+            if (masukPengguna(namaBerkasPengguna)) {
+                cout << "### Masuk berhasil ###\n" << endl;

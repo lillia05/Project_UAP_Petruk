@@ -178,3 +178,6 @@ int pilihan;
                     cout << "Pilihan lokasi tidak valid." << endl;
                 } else {
                     string lokasi = lokasiParkir[lokasiPilihan - 1];
+
+                    // Menggunakan Divide and Conquer untuk mencari tempat parkir
+                    vector<TempatParkir> tempatTersedia = cari(tempatParkir, lokasi, 0, tempatParkir.size() - 1);

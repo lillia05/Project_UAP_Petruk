@@ -407,3 +407,11 @@ int main() {
                                 cin.ignore();
                                 cin.get();
                                 break;
+                            case 2:
+                                sistemParkir.cariTempatParkir();
+                                cin >> id;
+                                sistemParkir.pesanTempatParkir(id);
+                                cout << "\nTekan Enter untuk melanjutkan...";
+                                cin.ignore();
+                                cin.get();
+                                break;

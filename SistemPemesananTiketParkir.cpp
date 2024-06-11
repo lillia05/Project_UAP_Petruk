@@ -366,3 +366,7 @@ int main() {
         int pilihanMasuk;
         cout << YELLOW << "Pilih opsi: " << RESET;
         cin >> pilihanMasuk;
+
+        char namaPengguna[50];
+        char kataSandi[50];
+

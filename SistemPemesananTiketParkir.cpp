@@ -444,3 +444,11 @@ int main() {
                 keluar = true;
                 clearScreen();
                 break;
+            default:
+                cout << RED << "Pilihan tidak valid!" << RESET << endl;
+                cout << "\nTekan Enter untuk melanjutkan...";
+                cin.ignore();
+                cin.get();
+                break;
+        }
+    }

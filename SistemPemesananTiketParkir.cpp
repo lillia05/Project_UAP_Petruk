@@ -344,3 +344,15 @@ void tampilanMasuk() {
     cout << GREEN << "2. Masuk" << RESET << endl;
     cout << GREEN << "3. Keluar" << RESET << endl;
 }
+
+void tampilanPengguna() {
+    clearScreen();
+    cout << YELLOW << "-----------------------------------------------------------\n" << RESET;
+    cout << PINK << "SELAMAT DATANG DI SISTEM PARKIR KAMI" << RESET << endl;
+    cout << YELLOW << "-----------------------------------------------------------\n" << RESET;
+    cout << GREEN << "1. Cari Tempat Parkir" << RESET << endl;
+    cout << GREEN << "2. Pesan Tempat Parkir" << RESET << endl;
+    cout << GREEN << "3. Riwayat Pesanan" << RESET << endl;
+    cout << GREEN << "4. Batalkan Reservasi Terakhir" << RESET << endl;
+    cout << GREEN << "5. Keluar" << RESET << endl;
+}

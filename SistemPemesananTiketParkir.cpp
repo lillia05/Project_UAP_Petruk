@@ -315,3 +315,11 @@ void cetakStruk(const TempatParkir& tempat, const string& lokasi) {
             cout << RED << "Silakan masuk terlebih dahulu!" << RESET << endl;
             return;
         }
+
+        if (riwayat.empty()) {
+            cout << RED << "Tidak ada riwayat." << RESET << endl;
+            cout << "\nTekan Enter untuk melanjutkan...";
+            cin.ignore();
+            cin.get();
+            return;
+        }

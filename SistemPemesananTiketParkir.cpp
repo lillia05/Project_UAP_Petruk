@@ -165,3 +165,54 @@ public:
         return false;
     }
 
+void cariTempatParkir() {
+    if (!masuk) {
+        cout << RED << "Silakan masuk terlebih dahulu!" << RESET << endl;
+        return;
+    }
+
+    bool selesai = false;
+    char id[10];
+    while (!selesai) {
+            cout << "Pilih lokasi (A/B/C): ";
+            cin >> lokasiSaatIni;
+
+            cout << "Pilih jenis kendaraan: (1) Motor, (2) Mobil: ";
+            int pilihan;
+            cin >> pilihan;
+            isMotor = (pilihan == 1);
+
+            cout << YELLOW << "------------------------------------\n" << RESET;
+            cout << PINK << "SELAMAT DATANG DI TEMPAT PARKIR LOKASI " << lokasiSaatIni << RESET << endl;
+            cout << YELLOW << "------------------------------------\n" << RESET;
+
+            vector<TempatParkir>& tempatParkir = dapatkanTempatParkir();
+            for (const TempatParkir& tempat : tempatParkir) {
+                if ((isMotor && !tempat.getIsMotor()) || (!isMotor && tempat.getIsMotor())) {
+                    cout << GREY << "[" << tempat.getId() << "]" << RESET;
+                } else {
+                    if (tempat.getTersedia()) {
+                        cout << GREEN << "[" << tempat.getId() << "]" << RESET;
+                    } else {
+                        cout << RED << "[" << tempat.getId() << "]" << RESET;
+                    }
+                }
+            }
+
+            cout << "Lanjutkan untuk Pemesanan Parkir? (Y/N): " << RESET;
+            char pilihanSelesai;
+            cin >> pilihanSelesai;
+
+            if (pilihanSelesai == 'N' || pilihanSelesai == 'n') {
+                selesai = true;
+            } else if (pilihanSelesai == 'Y' || pilihanSelesai == 'y') {
+                cout << YELLOW << "Masukkan ID tempat parkir: ";
+                cin >> id;
+                pesanTempatParkir(id);
+                break;
+            } else {
+                cout << RED << "Pilihan tidak valid!" << RESET << endl;
+            }
+        }
+    }
+

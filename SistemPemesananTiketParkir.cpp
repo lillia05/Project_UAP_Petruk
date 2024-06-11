@@ -285,24 +285,24 @@ void konfirmasiPemesanan(TempatParkir& tempat, const string& lokasi) {
 }
 
 string generateBarcode(const char* id) {
-string barcode = "||";
-for (int i = 0; id[i] != '\0'; i++) {
-    barcode += string(1, id[i]) + '|';
-}
-barcode += '|';
-return barcode;
+    string barcode = "||";
+    for (int i = 0; id[i] != '\0'; i++) {
+        barcode += string(1, id[i]) + '|';
+    }
+    barcode += '|';
+    return barcode;
 }
 
 void cetakStruk(const TempatParkir& tempat, const string& lokasi) {
-ofstream keluarBerkas("struk_parkir.txt");
-string barcode = generateBarcode(tempat.getId());
+    ofstream keluarBerkas("struk_parkir.txt");
+    string barcode = generateBarcode(tempat.getId());
 
-keluarBerkas << "ID Tempat Parkir: " << tempat.getId() << endl;
-keluarBerkas << "Lokasi: " << lokasi << endl;
-keluarBerkas << "Status: " << (tempat.getTersedia() ? "Tersedia" : "Dipesan") << endl;
-keluarBerkas << "Barcode: " << barcode << endl;
-keluarBerkas.close();
+    keluarBerkas << "ID Tempat Parkir: " << tempat.getId() << endl;
+    keluarBerkas << "Lokasi: " << lokasi << endl;
+    keluarBerkas << "Status: " << (tempat.getTersedia() ? "Tersedia" : "Dipesan") << endl;
+    keluarBerkas << "Barcode: " << barcode << endl;
+    keluarBerkas.close();
 
-cout << YELLOW<<"Struk dicetak dengan barcode:\n" << barcode << RESET<<endl;
-cout << endl;
+    cout << YELLOW<<"Struk dicetak dengan barcode:\n" << barcode << RESET<<endl;
+    cout << endl;
 }

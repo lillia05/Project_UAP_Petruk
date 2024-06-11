@@ -267,3 +267,9 @@ void batalkanReservasiTerakhir() {
     }
 }
 
+void konfirmasiPemesanan(TempatParkir& tempat, const string& lokasi) {
+    tempat.pesan();
+    clearScreen();
+    cout << YELLOW<< "======== SISTEM PEMESANAN PARKIR =========" << RESET<<endl;
+    cout << YELLOW<<"Pemesanan dikonfirmasi ID: " << tempat.getId() << " di Lokasi " << lokasi << RESET<< endl;
+}

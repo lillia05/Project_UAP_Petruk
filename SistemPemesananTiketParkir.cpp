@@ -300,3 +300,5 @@ string barcode = generateBarcode(tempat.getId());
 keluarBerkas << "ID Tempat Parkir: " << tempat.getId() << endl;
 keluarBerkas << "Lokasi: " << lokasi << endl;
 keluarBerkas << "Status: " << (tempat.getTersedia() ? "Tersedia" : "Dipesan") << endl;
+keluarBerkas << "Barcode: " << barcode << endl;
+keluarBerkas.close();

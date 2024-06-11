@@ -147,3 +147,21 @@ public:
                 return false;
             }
         }
+
+        Pengguna penggunaBaru;
+        strcpy(penggunaBaru.namaPengguna, namaPengguna);
+        strcpy(penggunaBaru.kataSandi, kataSandi);
+        penggunas.push_back(penggunaBaru);
+        return true;
+    }
+
+    bool masukPengguna(const char* namaPengguna, const char* kataSandi) {
+        for (const Pengguna& pengguna : penggunas) {
+            if (strcmp(pengguna.namaPengguna, namaPengguna) == 0 && strcmp(pengguna.kataSandi, kataSandi) == 0) {
+                masuk = true;
+                return true;
+            }
+        }
+        return false;
+    }
+

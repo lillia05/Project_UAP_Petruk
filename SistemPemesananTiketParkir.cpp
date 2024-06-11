@@ -428,3 +428,8 @@ int main() {
                                 cout << BLUE << "Terima kasih telah menggunakan layanan parkir ini. Sampai jumpa lagi!" << RESET << endl;
                                 selesai = true;
                                 break;
+                            default:
+                                cout << RED << "Pilihan tidak valid!" << RESET << endl;
+                                break;
+                        }
+                    }

@@ -424,3 +424,7 @@ int main() {
                                 cin.ignore();
                                 cin.get();
                                 break;
+                            case 5:
+                                cout << BLUE << "Terima kasih telah menggunakan layanan parkir ini. Sampai jumpa lagi!" << RESET << endl;
+                                selesai = true;
+                                break;

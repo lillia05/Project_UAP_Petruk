@@ -334,3 +334,13 @@ void cetakStruk(const TempatParkir& tempat, const string& lokasi) {
         cin.get();
     }
 };
+
+void tampilanMasuk() {
+    clearScreen();
+    cout << YELLOW << "-----------------------------------------------------------\n" << RESET;
+    cout << PINK << "SELAMAT DATANG DI SISTEM PARKIR KAMI" << RESET << endl;
+    cout << YELLOW << "-----------------------------------------------------------\n" << RESET;
+    cout << GREEN << "1. Daftar" << RESET << endl;
+    cout << GREEN << "2. Masuk" << RESET << endl;
+    cout << GREEN << "3. Keluar" << RESET << endl;
+}

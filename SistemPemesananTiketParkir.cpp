@@ -370,3 +370,9 @@ int main() {
         char namaPengguna[50];
         char kataSandi[50];
 
+        switch (pilihanMasuk) {
+            case 1:
+                cout << YELLOW << "Masukkan nama pengguna: " << RESET;
+                cin >> namaPengguna;
+                cout << YELLOW << "Masukkan kata sandi: " << RESET;
+                cin >> kataSandi;

@@ -97,9 +97,11 @@ void cetakStrukParkir(const TempatParkir& tempat, const string& lokasi) {
     keluarBerkas << "Barcode: " << barcode << endl;
     keluarBerkas.close();
 
+   clearScreen();
+    cout << "=========================================" << endl;
+    cout << "=        SISTEM PEMESANAN PARKIR        =" << endl;
+    cout << "=========================================" << endl;
     cout << "Struk dicetak dengan barcode: " << barcode << endl;
-    cetakGaris();
-    cout << endl;
 }
 
 void menuSetelahCetakStruk() {
@@ -155,6 +157,7 @@ int main() {
     }
 int pilihan;
     while (true) {
+        clearScreen();
         cetakGaris();
         cout << "=\t      SELAMAT DATANG\t        =" << endl;
         cetakGaris();
@@ -186,6 +189,8 @@ int pilihan;
                     cout << "Pilihan lokasi tidak valid." << endl;
                 } else {
                     string lokasi = lokasiParkir[lokasiPilihan - 1];
+
+                    clearScreen();
 
                     vector<TempatParkir> tempatTersedia = cari(tempatParkir, lokasi, 0, tempatParkir.size() - 1);
                     if (!tempatTersedia.empty()) {
@@ -230,6 +235,5 @@ int pilihan;
             cout << "Pilihan tidak valid." << endl;
         }
     }
-
     return 0;
 }

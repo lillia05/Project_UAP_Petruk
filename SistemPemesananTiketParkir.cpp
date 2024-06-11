@@ -216,3 +216,39 @@ void cariTempatParkir() {
         }
     }
 
+bool pesanTempatParkir(const char* id) {
+    if (!masuk) {
+        cout << RED << "Silakan masuk terlebih dahulu!" << RESET << endl;
+        return false;
+    }
+
+    bool idDitemukan = false;
+    vector<TempatParkir>& tempatParkir = dapatkanTempatParkir();
+    TempatParkir* tempat = temukanItem(tempatParkir, [id](const TempatParkir& t) { return strcmp(t.getId(), id) == 0; });
+    if (tempat != nullptr) {
+        idDitemukan = true;
+        if ((isMotor && !tempat->getIsMotor()) || (!isMotor && tempat->getIsMotor())) {
+            cout << RED << "Tempat parkir tidak cocok dengan jenis kendaraan Anda!" << RESET << endl;
+            return false;
+        }
+        if (tempat->getTersedia()) {
+            tempat->pesan();
+            riwayat.push_back(id);
+            tumpukanUndo.push(id);
+            cout << GREEN << "Tempat parkir " << id << " berhasil dipesan." << RESET << endl;
+            konfirmasiPemesanan(*tempat, string(1, lokasiSaatIni));
+            cetakStruk(*tempat, string(1, lokasiSaatIni));
+            return true;
+        } else {
+            cout << RED << "Tempat parkir tidak tersedia!" << RESET << endl;
+            return false;
+        }
+    }
+    if (!idDitemukan) {
+        cout << RED << "ID tempat parkir tidak ditemukan!" << RESET << endl;
+        return false;
+    }
+    return false;
+}
+
+

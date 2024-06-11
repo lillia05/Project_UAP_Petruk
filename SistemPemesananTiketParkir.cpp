@@ -302,3 +302,7 @@ keluarBerkas << "Lokasi: " << lokasi << endl;
 keluarBerkas << "Status: " << (tempat.getTersedia() ? "Tersedia" : "Dipesan") << endl;
 keluarBerkas << "Barcode: " << barcode << endl;
 keluarBerkas.close();
+
+cout << YELLOW<<"Struk dicetak dengan barcode:\n" << barcode << RESET<<endl;
+cout << endl;
+}

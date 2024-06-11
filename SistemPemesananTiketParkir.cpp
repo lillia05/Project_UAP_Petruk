@@ -397,3 +397,13 @@ int main() {
                         int pilihanPengguna;
                         cout << YELLOW << "Pilih opsi: " << RESET;
                         cin >> pilihanPengguna;
+
+                        char id[10];
+
+                        switch (pilihanPengguna) {
+                            case 1:
+                                sistemParkir.cariTempatParkir();
+                                cout << "\nTekan Enter untuk melanjutkan...";
+                                cin.ignore();
+                                cin.get();
+                                break;

@@ -197,6 +197,16 @@ void cariTempatParkir() {
                         cout << RED << "[" << tempat.getId() << "]" << RESET;
                     }
                 }
+
+                if (strcmp(tempat.getId(), "B10") == 0 || strcmp(tempat.getId(), "T10") == 0) {
+                    cout << "\n";
+                } else if (strcmp(tempat.getId(), "T20") == 0) {
+                    cout << "\n";
+                } else if (strcmp(tempat.getId(), "B20") == 0) {
+                    cout << YELLOW << "\n------------------------------------\n" << RESET;
+                } else {
+                    cout << " ";
+                }
             }
 
             cout << "Lanjutkan untuk Pemesanan Parkir? (Y/N): " << RESET;
@@ -275,8 +285,13 @@ void konfirmasiPemesanan(TempatParkir& tempat, const string& lokasi) {
 }
 
 string generateBarcode(const char* id) {
-        return string("BARCODE_") + id;
-    }
+string barcode = "||";
+for (int i = 0; id[i] != '\0'; i++) {
+    barcode += string(1, id[i]) + '|';
+}
+barcode += '|';
+return barcode;
+}
 
 void cetakStruk(const TempatParkir& tempat, const string& lokasi) {
 ofstream keluarBerkas("struk_parkir.txt");

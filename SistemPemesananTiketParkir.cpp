@@ -4,6 +4,7 @@
 #include <string>
 #include <cstring>
 #include <algorithm>
+#include <cstdlib>
 
 using namespace std;
 
@@ -23,6 +24,10 @@ public:
 
 void cetakGaris() {
     cout << "=========================================" << endl;
+}
+
+void clearScreen() {
+    system("cls");
 }
 
 void daftarPengguna(const char* namaBerkas) {
@@ -71,9 +76,10 @@ vector<TempatParkir> cariTempatParkir(const vector<TempatParkir>& tempat, const 
 
 void konfirmasiPemesanan(TempatParkir& tempat, const string& lokasi) {
     tempat.tersedia = false;
-    cetakGaris();
+    clearScreen();
+    cout << "=========================================" << endl;
     cout << "=        SISTEM PEMESANAN PARKIR        =" << endl;
-    cetakGaris();
+    cout << "=========================================" << endl;
     cout << "Pemesanan dikonfirmasi ID: " << tempat.id << " di " << lokasi << endl;
 }
 
@@ -127,8 +133,10 @@ vector<TempatParkir> cari(const vector<TempatParkir>& tempat, const string& loka
 }
 
 void tampilkanLokasi(const vector<string>& lokasiParkir) {
+    clearScreen();
+    cout << "=========================================" << endl;
     cout << "=        SISTEM PEMESANAN PARKIR        =" << endl;
-    cetakGaris();
+    cout << "=========================================" << endl;
     cout << "=  Lokasi parkir yang tersedia:\n";
     for (size_t i = 0; i < lokasiParkir.size(); ++i) {
         cout << "=  " << i + 1 << ". " << lokasiParkir[i] << endl;

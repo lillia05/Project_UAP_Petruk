@@ -182,9 +182,9 @@ void cariTempatParkir() {
             cin >> pilihan;
             isMotor = (pilihan == 1);
 
-            cout << YELLOW << "------------------------------------\n" << RESET;
+            cout << YELLOW << "-----------------------------------------------------------\n" << RESET;
             cout << PINK << "SELAMAT DATANG DI TEMPAT PARKIR LOKASI " << lokasiSaatIni << RESET << endl;
-            cout << YELLOW << "------------------------------------\n" << RESET;
+            cout << YELLOW << "-----------------------------------------------------------\n" << RESET;
 
             vector<TempatParkir>& tempatParkir = dapatkanTempatParkir();
             for (const TempatParkir& tempat : tempatParkir) {
@@ -203,7 +203,7 @@ void cariTempatParkir() {
                 } else if (strcmp(tempat.getId(), "T20") == 0) {
                     cout << "\n";
                 } else if (strcmp(tempat.getId(), "B20") == 0) {
-                    cout << YELLOW << "\n------------------------------------\n" << RESET;
+                    cout << YELLOW << "\n-----------------------------------------------------------\n" << RESET;
                 } else {
                     cout << " ";
                 }

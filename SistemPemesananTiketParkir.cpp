@@ -251,4 +251,19 @@ bool pesanTempatParkir(const char* id) {
     return false;
 }
 
+void batalkanReservasiTerakhir() {
+    if (!tumpukanUndo.empty()) {
+        string id = tumpukanUndo.top();
+        tumpukanUndo.pop();
+        vector<TempatParkir>& tempatParkir = dapatkanTempatParkir();
+        TempatParkir* tempat = temukanItem(tempatParkir, [id](const TempatParkir& t) { return strcmp(t.getId(), id.c_str()) == 0; });
+        if (tempat != nullptr) {
+            tempat->lepas();
+            riwayat.remove(id);
+            cout << RED << "Reservasi dengan ID " << id << " telah dibatalkan." << RESET << endl;
+            }
+    } else {
+        cout << YELLOW << "Tidak ada reservasi untuk dibatalkan." << RESET << endl;
+    }
+}
 

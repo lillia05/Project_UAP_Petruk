@@ -418,3 +418,9 @@ int main() {
                             case 3:
                                 sistemParkir.tampilkanRiwayatPesanan();
                                 break;
+                            case 4:
+                                sistemParkir.batalkanReservasiTerakhir();
+                                cout << "\nTekan Enter untuk melanjutkan...";
+                                cin.ignore();
+                                cin.get();
+                                break;

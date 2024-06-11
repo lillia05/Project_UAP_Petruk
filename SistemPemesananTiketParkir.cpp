@@ -440,4 +440,7 @@ int main() {
                 cin.ignore();
                 cin.get();
                 break;
-
+            case 3:
+                keluar = true;
+                clearScreen();
+                break;

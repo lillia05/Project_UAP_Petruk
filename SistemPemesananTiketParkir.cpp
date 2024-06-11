@@ -360,3 +360,9 @@ void tampilanPengguna() {
 int main() {
     SistemParkir sistemParkir;
     bool keluar = false;
+
+    while (!keluar) {
+        tampilanMasuk();
+        int pilihanMasuk;
+        cout << YELLOW << "Pilih opsi: " << RESET;
+        cin >> pilihanMasuk;

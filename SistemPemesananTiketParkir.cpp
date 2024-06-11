@@ -328,3 +328,9 @@ void cetakStruk(const TempatParkir& tempat, const string& lokasi) {
         for (const string& id : riwayat) {
             cout << CYAN << "KENDARAAN " << "(" << id[0] << ")" << " = " << id << RESET << endl;
         }
+
+        cout << "\nTekan Enter untuk melanjutkan...";
+        cin.ignore();
+        cin.get();
+    }
+};

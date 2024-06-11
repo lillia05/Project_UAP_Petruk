@@ -273,3 +273,15 @@ void konfirmasiPemesanan(TempatParkir& tempat, const string& lokasi) {
     cout << YELLOW<< "======== SISTEM PEMESANAN PARKIR =========" << RESET<<endl;
     cout << YELLOW<<"Pemesanan dikonfirmasi ID: " << tempat.getId() << " di Lokasi " << lokasi << RESET<< endl;
 }
+
+string generateBarcode(const char* id) {
+        return string("BARCODE_") + id;
+    }
+
+void cetakStruk(const TempatParkir& tempat, const string& lokasi) {
+ofstream keluarBerkas("struk_parkir.txt");
+string barcode = generateBarcode(tempat.getId());
+
+keluarBerkas << "ID Tempat Parkir: " << tempat.getId() << endl;
+keluarBerkas << "Lokasi: " << lokasi << endl;
+keluarBerkas << "Status: " << (tempat.getTersedia() ? "Tersedia" : "Dipesan") << endl;

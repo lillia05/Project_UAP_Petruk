@@ -433,3 +433,11 @@ int main() {
                                 break;
                         }
                     }
+                } else {
+                    cout << RED << "Nama pengguna atau kata sandi salah!" << RESET << endl;
+                }
+                cout << "\nTekan Enter untuk melanjutkan...";
+                cin.ignore();
+                cin.get();
+                break;
+

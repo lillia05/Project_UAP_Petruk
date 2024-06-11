@@ -306,3 +306,12 @@ void cetakStruk(const TempatParkir& tempat, const string& lokasi) {
     cout << YELLOW<<"Struk dicetak dengan barcode:\n" << barcode << RESET<<endl;
     cout << endl;
 }
+
+    void tampilkanRiwayatPesanan() {
+        cout << "=============================\n";
+        cout << "RIWAYAT PESANAN TEMPAT PARKIR\n";
+        cout << "=============================\n";
+        if (!masuk) {
+            cout << RED << "Silakan masuk terlebih dahulu!" << RESET << endl;
+            return;
+        }

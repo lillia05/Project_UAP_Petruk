@@ -376,3 +376,12 @@ int main() {
                 cin >> namaPengguna;
                 cout << YELLOW << "Masukkan kata sandi: " << RESET;
                 cin >> kataSandi;
+                if (sistemParkir.daftarPengguna(namaPengguna, kataSandi)) {
+                    cout << GREEN << "Pendaftaran berhasil!" << RESET << endl;
+                } else {
+                    cout << RED << "Nama pengguna sudah terdaftar!" << RESET << endl;
+                }
+                cout << "\nTekan Enter untuk melanjutkan...";
+                cin.ignore();
+                cin.get();
+                break;

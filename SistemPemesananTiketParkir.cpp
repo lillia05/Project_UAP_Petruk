@@ -385,3 +385,15 @@ int main() {
                 cin.ignore();
                 cin.get();
                 break;
+            case 2:
+                cout << YELLOW << "Masukkan nama pengguna: " << RESET;
+                cin >> namaPengguna;
+                cout << YELLOW << "Masukkan kata sandi: " << RESET;
+                cin >> kataSandi;
+                if (sistemParkir.masukPengguna(namaPengguna, kataSandi)) {
+                    bool selesai = false;
+                    while (!selesai) {
+                        tampilanPengguna();
+                        int pilihanPengguna;
+                        cout << YELLOW << "Pilih opsi: " << RESET;
+                        cin >> pilihanPengguna;
